@@ -2,10 +2,11 @@
 import json from 'rollup-plugin-json';
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
+import uglify from 'rollup-plugin-uglify';
 
 export default {
   entry: 'src/main.js',
-  format: 'cjs',
+  format: 'iife',
   plugins: [
     json(),
 
@@ -17,9 +18,11 @@ export default {
 
     commonjs({
        include: "node_modules/**"
-    })
+    }),
+
+    uglify()
 
   ],
-  dest: 'dist/bundle.js',
+  dest: 'dist/bundle.min.js',
   sourceMap: true
 };
