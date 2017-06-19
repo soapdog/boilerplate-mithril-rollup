@@ -6,9 +6,11 @@ import uglify from 'rollup-plugin-uglify';
 
 export default {
   entry: 'src/main.js',
-  format: 'iife',
+  format: 'cjs',
   plugins: [
-    json(),
+    json({
+      exclude: ["nodem_modules/**"]
+    }),
 
     resolve({
       jsnext: true,
