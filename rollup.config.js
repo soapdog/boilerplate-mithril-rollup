@@ -9,7 +9,7 @@ export default {
   format: 'cjs',
   plugins: [
     json({
-      exclude: ["nodem_modules/**"]
+      exclude: ["node_modules/**"]
     }),
 
     resolve({
@@ -19,10 +19,10 @@ export default {
     }),
 
     commonjs({
-       include: "node_modules/**"
+      include: "node_modules/**"
     }),
 
-    uglify()
+    uglify(),
 
   ],
   dest: 'dist/bundle.min.js',
